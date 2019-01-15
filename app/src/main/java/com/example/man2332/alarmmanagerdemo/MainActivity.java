@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         cancelTimeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //cancelAlarm();
+                cancelAlarm();
             }
         });
 
@@ -74,5 +74,13 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
     }
+    private void cancelAlarm() {
+        AlarmManager alarmManager = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
 
+        alarmManager.cancel(pendingIntent);
+        mTextView.setText("Alarm canceled");
+
+    }
 }

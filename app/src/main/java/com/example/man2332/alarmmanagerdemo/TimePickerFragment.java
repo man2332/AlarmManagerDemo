@@ -1,18 +1,15 @@
 package com.example.man2332.alarmmanagerdemo;
 
-import android.app.AlarmManager;
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.text.format.DateFormat;
-import android.widget.TimePicker;
 
 import java.util.Calendar;
-
+//creates a time picker dialog fragment for user to select the time
 public class TimePickerFragment extends DialogFragment  {
     @NonNull
     @Override
